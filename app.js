@@ -11,5 +11,18 @@ function agregarAmigo(){
 
         //Limpiamos el campo de texto.
         document.getElementById("amigo").value = "";
+        //Mostramos la lista actualizada.
+        mostrarAmigos();
+    }
+}
+
+function mostrarAmigos(){
+    let lista = document.getElementById("listaAmigos");
+    lista.innerHTML = "";
+
+    for(let i = 0; i < amigosIngresados.length; i++){
+        let li = document.createElement("li");
+        li.textContent = amigosIngresados[i];
+        lista.appendChild(li);
     }
 }
