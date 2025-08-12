@@ -1,11 +1,11 @@
 // El principal objetivo de este desafío es fortalecer tus habilidades en lógica de programación. Aquí deberás desarrollar la lógica para resolver el problema.
 let amigosIngresados = [];
 
-function agregarAmigo(){
+function agregarAmigo() {
     let amigoIngresado = document.getElementById("amigo").value;
-    if(amigoIngresado == ""){
+    if (amigoIngresado == "") {
         alert('Ingrese un nombre');
-    }else{
+    } else {
         //Añadimos el amigo al arreglo.
         amigosIngresados.push(amigoIngresado);
 
@@ -16,14 +16,14 @@ function agregarAmigo(){
     }
 }
 
-function mostrarAmigos(){
+function mostrarAmigos() {
     //Obtenemos el elemento donde se mostrará la lista.
     let lista = document.getElementById("listaAmigos");
     // Limpiamos la lista actual.
     lista.innerHTML = "";
 
     // Recorremos el arreglo de amigos ingresados.
-    for(let i = 0; i < amigosIngresados.length; i++){
+    for (let i = 0; i < amigosIngresados.length; i++) {
         // Creamos un nuevo elemento de lista.
         let li = document.createElement("li");
         // Asignamos el nombre del amigo al elemento de lista.
@@ -33,15 +33,21 @@ function mostrarAmigos(){
     }
 }
 
-function sortearAmigo(){
-    if(amigosIngresados.length < 2){
+function sortearAmigo() {
+    //Validamos que se necesitan al menos 2 amigos para sortear.
+    if (amigosIngresados.length < 2) {
         alert("Necesitas al menos 2 amigos para sortear.");
         return;
-    }else{
+    } else {
+        //Generamos un numero aleatorio que será el indice del amigo sorteado.
         let indice = Math.floor(Math.random() * amigosIngresados.length);
         let amigo = amigosIngresados[indice];
+        //Capturamos el elemento de la lista y la limpiamos.
         let lista = document.getElementById("listaAmigos");
         lista.innerHTML = "";
-        document.getElementById("resultado").innerHTML =`Amigo sorteado: ${amigo}`;
+
+        document.getElementById("resultado").innerHTML = `Amigo sorteado: ${amigo}`;
+        //Reiniciamos la lista de amigos ingresados.
+        amigosIngresados = [];
     }
 }
