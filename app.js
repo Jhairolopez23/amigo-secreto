@@ -11,6 +11,7 @@ function agregarAmigo() {
 
         //Limpiamos el campo de texto.
         document.getElementById("amigo").value = "";
+        document.getElementById("resultado").innerHTML = "";
         //Mostramos la lista actualizada.
         mostrarAmigos();
     }
