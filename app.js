@@ -33,13 +33,15 @@ function mostrarAmigos(){
     }
 }
 
-function sortearAmigos(){
+function sortearAmigo(){
     if(amigosIngresados.length < 2){
         alert("Necesitas al menos 2 amigos para sortear.");
         return;
     }else{
         let indice = Math.floor(Math.random() * amigosIngresados.length);
         let amigo = amigosIngresados[indice];
-        document.getElementById('resultado').innerHTML =`Amigo sorteado: ${amigo}`;
+        let lista = document.getElementById("listaAmigos");
+        lista.innerHTML = "";
+        document.getElementById("resultado").innerHTML =`Amigo sorteado: ${amigo}`;
     }
 }
